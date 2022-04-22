@@ -1,0 +1,71 @@
+<HTML>
+  <HEAD>
+     <TITLE>
+           Segundo ejemplo de formularios
+     </TITLE>
+          <SCRIPT type="text/javascript" >
+	// Declaración de la función para validar los datos del formulario
+                function validaf(formulario){
+        		var v1;
+			var v2;
+			var rnombre;
+			var rnumero;
+			var r;
+	        	v1=formulario.nombre.value; // recibimos el valor del nombre
+		        v2=formulario.numeroc.value; // recibimos el valor del numero de cuenta
+		        if (v1.length==0){  //  valida  si existe una cadena en nombre                                                                                                                 
+		           rnombre=false; // si el valor es incorrecto a "rnombre" asigna falso
+                           alert ('No ha ingresado  el nombre');
+		        }else{
+                           rnombre=true; // si el valor es correcto a “rnombre” asigna verdadero
+                        }
+           		if (numeros(v2)==false ){  //valida si se ingreso un número de cuenta
+	                   rnumero=false; // si el valor es  incorrectos a “rnumero” asigna falso
+                           alert ('No ha ingresado  un número de cuenta');
+		        }else{
+                           rnumero=true; // si el valor es correcto a  "rnumero" asigna verdadero
+                                       }
+		        if(rnombre==false || rnumero==false){
+				r=false;
+			}// si alguno de los valores es incorrecto regresa un false
+		        else { r=true;}
+                        
+                        return r; // regresa el valor de r "true"  o  "false"
+
+                }
+	
+                // función para verificar si un valor es un número
+                function numeros(n){
+	                var Pattern ="(^[0-9]+$)" ;
+        	        if ( n.match(Pattern)){
+               		     return true;
+                	}else{
+                        	 return false;
+	                }
+                }
+	
+</SCRIPT >
+     
+  </HEAD>
+  <BODY>
+	SEGUNDO EJEMPLO DE FORMULARIOS <BR><BR>
+	POR FAVOR INGRESE LOS DATOS SIGUIENTES: <BR>
+      <FORM NAME="formulario1"  METHOD="POST"  ACTION="procesa.php"     onsubmit="return validaf(document.formulario1);">
+	<!--        ---------------------------- INICIO DE DECLARACION DE INPUTS -->
+	<BR><BR>
+	<!--        ---------------------------- INPUTS  DE TIPO TEXT -->
+	ESCRIBE EL NOMBRE DEL ALUMNO
+	<INPUT NAME="nombre" SIZE=50 MAXLENGTH=40 VALUE="" >
+	<BR><BR>
+	ESCRIBE EL NÚMERO DE CUENTA
+	<INPUT NAME="numeroc" SIZE=50 MAXLENGTH=40 VALUE="">	
+	<BR><BR>
+	<!--        ----------------------------INPUTS  DE TIPO BUTTON -->
+	<INPUT NAME="BOTON" TYPE="SUBMIT" VALUE="ENVIAR" >	
+	<BR><BR>
+	<!--       ----------------------------INPUTS  DE TIPO RESET -->
+	<INPUT NAME="BOTON2" TYPE="RESET" VALUE="LIMPIAR" >
+	<BR><BR>
+     </FORM>
+  </BODY>
+</HTML>
